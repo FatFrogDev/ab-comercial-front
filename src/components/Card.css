@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 33vw;
+  height: 32vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  left: 16vh;
+  border-radius: 20px;
+}
+
+
+@keyframes expand-card {
+  from {
+    height: 32vh;
+  }
+  to {
+    height: 39.5vh;
+  }
+}
+
+@keyframes reset-card {
+  from {
+    height: 39.5vh;
+  }
+  to {
+    height: 32vh;
+  }
+}
+
+.card, .table{
+  top: 7vh;
+}
+
+.card-header {
+  position: absolute;
+  top: 1.5vh;
+  left: 1.3vw;
+}
+
+.add-arrow {
+  position: relative;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.input-image {
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+  margin-left: 5vh;
+  position: absolute;
+}
+
+.input-row {
+  display: flex;
+  position: relative;
+}
+
+.input-row ::placeholder {
+  color: #C5C5C5;
+}
+
+.input-row input {
+  text-indent: 35px;
+  padding: 10px;
+  width: 20vw;
+  border: 2.7px solid #C5C5C5;
+  margin-left: 3.2vh;
+  border-radius: 20px;
+  font-size: 30px;
+  flex-grow: -1;
+}
+
+
+.cancel-btn{
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+  position: absolute;
+  left: 23vw;
+  top: 33vh;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.confirm-btn {
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 26vw;
+  top: 33vh;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.confirm1-btn {
+  width: 25%;
+  margin-left: 15.5vh;
+  background-color:transparent;
+  position: absolute;
+  color: #C5C5C5;
+  top:32.4vh;
+  align-self: start;
+  margin-left: 17v h;
+  border: 2.5px solid #40CEE4;
+  padding: 1px 2px 1px 2px;
+  margin-top:7px;
+  right: 0;
+  margin-right: 5vw;
+  background-color: transparent;
+  font-size:30px;
+  cursor: pointer;
+  visibility: visible;
+  font-family: 'Montserrat';
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+.cancel1-btn {
+  width: 26%;
+  margin-left: 15.5vh;
+  background-color:transparent;
+  position: absolute;
+  color: #C5C5C5;
+  top:32.4vh;
+  align-self: start;
+  margin-left: 16vh;
+  border: 2.5px solid #C6007E;
+  padding: 1px 2px 1px 2px;
+  margin-top:7px;
+  background-color: transparent;
+  font-size:30px;
+  cursor: pointer;
+  visibility: visible;
+  font-family: 'Montserrat';
+  border-radius: 10px;
+  visibility: hidden;
+  font-weight: 480;
+}
+
+
+.table {
+  position: absolute;
+  right: 0;
+  margin-right: 7vw;
+  border-collapse: collapse;
+  width: 47vw;
+  font-family: 'Montserrat';
+  border-color: #C5C5C5;
+}
+
+.separator-1 {
+  top:10px;
+  height:100%;
+  border-right: 1vw solid white;
+}
+
+.separator-2 {
+  text-align: start;
+  border-right: 1vw solid white;
+}
+
+.table th{
+  font-size: 35px;
+  font-weight: 500;
+  padding:20px;
+}
+
+.table th, .table td {
+  padding: 5px 25px 0 0;
+  text-align: end;
+}
+
+.table td{
+  border-bottom: 2px solid #E280BE;
+  text-align: start;
+}
+
+.table th {
+  background-color: #E280BE;
+  color: white;
+}
+
+.table td {
+  text-align: left;
+  color:#C5C5C5;
+  font-size:28px;
+  font-weight: 500;
+
+}
+
+.table tr {
+  animation: none;
+}
+
+.delete-animation {
+  animation: slide-out 2s ease-out forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-150vw);
+    opacity: 0;
+  }
+}
+
+
+#locality-td {
+  text-align: center;
+}
+
+
+.edit-icon{
+  position:relative;
+  cursor: pointer;
+  top:1px;
+  right:15px;
+}
+
+.delete-icon {
+  position: absolute;
+  cursor: pointer;
+  right:0;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width:100vw;
+  height:12vh;
+  display:flex;
+}
+
+footer img{
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  top: 0;
+}
