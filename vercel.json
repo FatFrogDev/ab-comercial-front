@@ -2,5 +2,14 @@
     "rewrites": [
       { "source": "/dashboard", "destination": "/componente" },
       { "source": "/(.*)", "destination": "/" }
+    ],
+    "routes":[
+      {
+        "src": "/(.*)",
+        "methods":[ "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS" ],
+        "headers":{
+          "Access-Control-Allow-Origin": "*"
+        }
+      }
     ]
   }
