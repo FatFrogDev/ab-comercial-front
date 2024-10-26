@@ -14,7 +14,13 @@ function Dashboard() {
   
 
   useEffect(() => {
-    fetch(`${BASE_URL}car-requests/all`)
+    fetch(`${BASE_URL}car-requests/all`,
+      {
+        'mode': 'cors',
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+        }
+      })
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -65,10 +71,13 @@ function Dashboard() {
       "car_requested": card_id_input ? (card_id_input as HTMLInputElement).value : '',
       "requested_at_locality": card_locality_input ? (card_locality_input as HTMLInputElement).value : ''
      };
-    fetch(FINAL_URL, {
-      method: "PUT",
+    fetch(FINAL_URL,
+      {
+        method: "PUT",
+        'mode':'cors',
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify(car_request_data)
     });
@@ -108,8 +117,10 @@ function Dashboard() {
       
       fetch(FINAL_URL, {
         method: "POST",
+        'mode':'cors',
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(car_request_data)
       });
@@ -149,7 +160,11 @@ function Dashboard() {
       
       const FINAL_URL = `${BASE_URL}car-requests/${car_request_id}`;
       fetch(FINAL_URL, {
-        method: "DELETE"
+        method: "DELETE",
+        'mode':'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
       })
       .then(response => response.json())
       .finally(() => {
