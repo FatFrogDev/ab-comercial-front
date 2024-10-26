@@ -73,6 +73,7 @@ function Dashboard() {
     fetch(FINAL_URL,
       {method: "PUT",
         headers: {
+          "Content-Type":"application/json",
           "Access-Control-Allow-Origin": "*"
         },
       body: JSON.stringify(car_request_data)
@@ -114,6 +115,7 @@ function Dashboard() {
       fetch(FINAL_URL, {
         method: "POST",
         headers: {
+          "Content-Type":"application/json",
           "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify(car_request_data)
