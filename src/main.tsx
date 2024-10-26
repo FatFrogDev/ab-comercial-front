@@ -1,9 +1,9 @@
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
+import Dashboard from './components/Dashboard.tsx';
 import Landing from './components/Landing.tsx';
-import Card from './components/Dashboard.tsx';
 
 
 import {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Card />
+    element: <Dashboard />
   },
 ]);
 

@@ -1,4 +1,4 @@
-import './Card.css';
+import './Dashboard.css';
 
 import CarRequestType from '../types/CarRequest';
 import { useState } from 'react';
@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import React from 'react';
 
 
-function Card() {
+function Dashboard() {
   const [currentRequestId, setCurrentRequestId] = useState("");
   const [carRequestsData, setCarRequestsData] = useState<CarRequestType[]>([]);
   const BASE_URL= import.meta.env.VITE_BASE_BACKEND_URL ;
@@ -305,4 +305,4 @@ function Card() {
   
 }
 
-export default Card;  
+export default Dashboard;  
