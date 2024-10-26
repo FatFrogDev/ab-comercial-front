@@ -29,9 +29,8 @@ function Card() {
     });
 }, []);
 
-  
 
-  const updateIcons = (icons, number) => {
+  const updateIcons = (icons:any, number: number|string) => {
     icons.card_icon.src = `./src/assets/Icon_vehiculo${number}.svg`;
     icons.locality_icon.src = `./src/assets/Icon_puntoubicacion${number}.svg`;
     icons.client_icon.src = `./src/assets/Icon_persona${number}.svg`;
@@ -62,10 +61,10 @@ function Card() {
     const elements = getElements();
     const { card_id_input, card_locality_input, card_client_input } = elements;
     const car_request_data = {
-      "user_requesting": card_client_input.value,
-      "car_requested": card_id_input.value,
-      "requested_at_locality": card_locality_input.value
-    };
+      "user_requesting": card_client_input ? (card_client_input as HTMLInputElement).value : '',
+      "car_requested": card_id_input ? (card_id_input as HTMLInputElement).value : '',
+      "requested_at_locality": card_locality_input ? (card_locality_input as HTMLInputElement).value : ''
+     };
     fetch(FINAL_URL, {
       method: "PUT",
       headers: {
@@ -89,10 +88,12 @@ function Card() {
       console.error("No se encontró el id de la solicitud");
       return;
     }
-  
-    card_id_input.value = card_data.brand_id;
-    card_locality_input.value = card_data.requested_at_locality;
-    card_client_input.value = card_data.user_requesting;
+    if (card_id_input && card_locality_input && card_client_input) {
+      (card_id_input as HTMLInputElement).value = card_data.brand_id;
+      (card_locality_input as HTMLInputElement).value = card_data.requested_at_locality;
+      (card_client_input as HTMLInputElement).value = card_data.user_requesting;
+    } else 
+      console.error("No se encontraron los inputs para ser rellenados");
   };
 
  const  handleOnClickCrear =  ()=>{
@@ -100,9 +101,9 @@ function Card() {
       const FINAL_URL = BASE_URL + "car-requests/save";
 
       const car_request_data= {
-        "user_requesting": document.querySelector("#card-client-input").value,
-        "car_requested": document.querySelector("#car-id-input").value,
-        "requested_at_locality": document.querySelector("#card-locality-input").value
+        "user_requesting": document.querySelector<HTMLInputElement>("#card-client-input")?.value || '',
+        "car_requested": document.querySelector<HTMLInputElement>("#car-id-input")?.value || '',
+        "requested_at_locality": document.querySelector<HTMLInputElement>("#card-locality-input")?.value || ''
       }
       
       fetch(FINAL_URL, {
@@ -137,15 +138,6 @@ function Card() {
       };
     };
 
-    /*
-    const FINAL_URL = BASE_URL + `car-requests/${car_request_id}`;
-      fetch(FINAL_URL, {
-        method: "DELETE"
-      }).then(response => response.json()
-    )
-    .finally(()=>);
-     */
-
     const handle_delete_click = (car_request_id: string, event:React.MouseEvent) => {
       const row = event.currentTarget.closest('tr');
       if (row) {
@@ -155,7 +147,7 @@ function Card() {
           }, 500);
         }
       
-      const FINAL_URL = `${BASE_URL}/car-requests/${car_request_id}`;
+      const FINAL_URL = `${BASE_URL}car-requests/${car_request_id}`;
       fetch(FINAL_URL, {
         method: "DELETE"
       })
@@ -178,10 +170,10 @@ function Card() {
 
       updateIcons(elements, "1");
 
-      card.style.animation = "expand-card .25s ease forwards";
+      (card as HTMLElement).style.animation = "expand-card .25s ease forwards";
       setTimeout(() => {
-        confirm_btn.style.visibility = "visible";
-        cancel_btn.style.visibility = "visible";
+        (confirm_btn as HTMLElement).style.visibility = "visible";
+        (cancel_btn as HTMLElement).style.visibility = "visible";
       }, 50);
     
       set_to_edit_data(car_request_id);
@@ -199,15 +191,15 @@ function Card() {
     
       updateIcons(elements, "");
     
-      card.style.animation = "reset-card .25s ease forwards";
+      (card as HTMLElement).style.animation = "reset-card .25s ease forwards";
       setTimeout(() => {
-        confirm_btn.style.visibility = "hidden";
-        cancel_btn.style.visibility = "hidden";
+        (confirm_btn as HTMLElement).style.visibility = "hidden";
+        (cancel_btn as HTMLElement).style.visibility = "hidden";
       }, 30);
     
-      card_id_input.value = "";
-      card_locality_input.value = "";
-      card_client_input.value = "";
+      (card_id_input as HTMLInputElement).value = "";
+      (card_locality_input as HTMLInputElement).value = "";
+      (card_client_input as HTMLInputElement).value = "";
     };
     
 
@@ -216,7 +208,7 @@ function Card() {
     const handle_add_click = () => {
       
       const elements = getElements();
-      const { locality_icon, client_icon, add_arrow, card, confirm1_btn, cancel1_btn } = elements;
+      const { add_arrow, card, confirm1_btn, cancel1_btn } = elements;
     
       if (!add_arrow || !card || !confirm1_btn || !cancel1_btn) {
         console.error("No se encontraron los iconos para ser reemplazados");
@@ -225,32 +217,33 @@ function Card() {
 
       updateIcons(elements, "1");
     
-      card.style.animation = "expand-card .25s ease forwards";
-      confirm1_btn.style.visibility = "visible";
-      cancel1_btn.style.visibility = "visible";
+      (card as HTMLElement).style.animation = "expand-card .25s ease forwards";
+      (confirm1_btn as HTMLElement).style.visibility = "visible";
+      (cancel1_btn as HTMLElement).style.visibility = "visible";
     };
     
 
 
     const handleOnClickCancelar = () => {
       const elements = getElements();
-      const { card_icon, locality_icon, client_icon, card, confirm1_btn, cancel1_btn, card_id_input, card_locality_input, card_client_input } = elements;
+      const { card, confirm1_btn, cancel1_btn, card_id_input, card_locality_input, card_client_input } = elements;
     
       if (!card || !confirm1_btn || !cancel1_btn || !card_id_input || !card_locality_input || !card_client_input) {
         console.error("No se encontraron los iconos para ser reemplazados");
         return;
       }
     
-      card_id_input.value = "";
-      card_locality_input.value = "";
-      card_client_input.value = "";
+      (card_id_input as HTMLInputElement).value = "";
+      (card_locality_input as HTMLInputElement).value = "";
+      (card_client_input as HTMLInputElement).value = "";
     
       updateIcons(elements, "");
     
-      card.style.animation = "reset-card .25s ease forwards";
+      (card as HTMLElement).style.animation = "reset-card .25s ease forwards";
+
       setTimeout(() => {
-        confirm1_btn.style.visibility = "hidden";
-        cancel1_btn.style.visibility = "hidden";
+        (confirm1_btn as HTMLElement).style.visibility = "hidden";
+        (cancel1_btn as HTMLElement).style.visibility = "hidden";
       }, 65);
     };
 
