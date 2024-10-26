@@ -17,7 +17,7 @@ function Dashboard() {
     fetch(`${BASE_URL}car-requests/all`,
       {method: "GET",
         headers: {
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*"
         }
       })
     .then(response => {
@@ -73,7 +73,7 @@ function Dashboard() {
     fetch(FINAL_URL,
       {method: "PUT",
         headers: {
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*"
         },
       body: JSON.stringify(car_request_data)
     });
@@ -114,7 +114,7 @@ function Dashboard() {
       fetch(FINAL_URL, {
         method: "POST",
         headers: {
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify(car_request_data)
       });
@@ -156,7 +156,7 @@ function Dashboard() {
       fetch(FINAL_URL, {
         method: "DELETE",
         headers: {
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*"
         },
       })
       .then(response => response.json())
