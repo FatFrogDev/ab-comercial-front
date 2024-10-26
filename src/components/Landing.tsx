@@ -6,7 +6,7 @@ return (
     <div className="reveal-wrapper">
       <img src=".\src\assets\Imagologo_motion.svg" id="imagologo"/>
         <main className="content">
-          <img src={import.meta.env.PUBLIC_URL+"/assets/Telefono-01.png"} alt="logo" id="main-image"/>
+          <img src="/static/images/Telefono-01.png" alt="logo" id="main-image"/>
           <section className="text">
               <h1>BIENVENIDO A</h1>
               <h2>MONITORING INNOVATION</h2>

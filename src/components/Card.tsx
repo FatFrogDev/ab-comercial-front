@@ -44,9 +44,9 @@ function Card() {
           <td id="locality-td">{car_request.requested_at_locality}</td>
           <td>{car_request.user_requesting}</td>
           <td>
-            <img className="edit-icon" src={import.meta.env.PUBLIC_URL+"/assets/Icon_editar1.svg"} alt="delete-icon" onClick={()=>{handle_edit_click(car_request.car_request_id)}}  
+            <img className="edit-icon" src="/static/imagesets/Icon_editar1.svg" alt="delete-icon" onClick={()=>{handle_edit_click(car_request.car_request_id)}}  
              />
-            <img className="delete-icon" src={import.meta.env.PUBLIC_URL+"/assets/Icon_eliminar1.svg"} alt="delete-icon" onClick={(event)=>{handle_delete_click(car_request.car_request_id, event)}}
+            <img className="delete-icon" src="/static/imagesets/Icon_eliminar1.svg" alt="delete-icon" onClick={(event)=>{handle_delete_click(car_request.car_request_id, event)}}
             />
           </td>
         </tr>
@@ -249,34 +249,33 @@ function Card() {
 
 
 
-
   return (
     <>
     <section className="card" id="main-card">
       <div className="card-header">
         <span className="add">
-          <img className="add-arrow" src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_crear.svg"} alt="add" onClick={handle_add_click} />
+          <img className="add-arrow" src="/static/images/assets/Icon_crear.svg" alt="add" onClick={handle_add_click} />
         </span>
       </div>
       <div className="inputs">
         <div className="input-row">
-          <img id="car-icon" className="input-image" src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_vehiculo.svg"} alt="car-input" />
+          <img id="car-icon" className="input-image" src="/static/images/assets/Icon_vehiculo.svg" alt="car-input" />
           <input type="text" placeholder="Mazda" id="car-id-input"/>
         </div>
         <div className="input-row">
-          <img id="locality-icon" className="input-image" src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_puntoubicacion.svg"} alt="locality-input" />
+          <img id="locality-icon" className="input-image" src="/static/images/assets/Icon_puntoubicacion.svg" alt="locality-input" />
           <input type="text" placeholder="Chapinero" id="card-locality-input" />
         </div>
         <div className="input-row">
-          <img id="client-icon" className="input-image" src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_persona.svg"} alt="client-input" />
+          <img id="client-icon" className="input-image" src="/static/images/assets/Icon_persona.svg" alt="client-input" />
           <input type="text" placeholder="David Sandoval" id="card-client-input" />
         </div>
       </div>
       <button className="cancel-btn" id="cancel-btn-id" onClick={handle_cancel_click} >
-          <img src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_cancelar.svg"} alt="cancel-btn" />
+          <img src="/static/images/assets/Icon_cancelar.svg" alt="cancel-btn" />
         </button>
         <button className="confirm-btn" id="confirm-btn-id"  onClick={handleOnclikEdit}>
-          <img src={import.meta.env.PUBLIC_URL+"/src/assets/Icon_confirmar.svg"} alt="confirm-btn" />
+          <img src="/static/images/assets/Icon_confirmar.svg" alt="confirm-btn" />
         </button>
         <button className="confirm1-btn" onClick={handleOnClickCrear}>
           Crear
@@ -299,7 +298,7 @@ function Card() {
     </tbody>
   </table>
   <footer>
-    <img src={import.meta.env.PUBLIC_URL+"/src/assets/Imagologotipo_motion.svg"} alt="imagologotipo-motion" />
+    <img src="/static/images/Imagologotipo_motion.svg" alt="imagologotipo-motion" />
   </footer>
   </>
   );
