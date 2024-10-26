@@ -74,7 +74,6 @@ function Dashboard() {
     fetch(FINAL_URL,
       {
         method: "PUT",
-        'mode':'cors',
       headers: {
         "Content-Type": "application/json",
         'Access-Control-Allow-Origin': '*',
@@ -117,7 +116,6 @@ function Dashboard() {
       
       fetch(FINAL_URL, {
         method: "POST",
-        'mode':'cors',
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
@@ -161,7 +159,6 @@ function Dashboard() {
       const FINAL_URL = `${BASE_URL}car-requests/${car_request_id}`;
       fetch(FINAL_URL, {
         method: "DELETE",
-        'mode':'cors',
         headers: {
           'Access-Control-Allow-Origin': '*',
         }
