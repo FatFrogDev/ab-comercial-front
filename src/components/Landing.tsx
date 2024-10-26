@@ -4,7 +4,7 @@ function Landing() {
 return (
     <>
     <div className="reveal-wrapper">
-      <img src=".\src\assets\Imagologo_motion.svg" id="imagologo"/>
+      <img src="/static/images/Imagologo_motion.svg" id="imagologo"/>
         <main className="content">
           <img src="/static/images/Telefono-01.png" alt="logo" id="main-image"/>
           <section className="text">
