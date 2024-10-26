@@ -2,15 +2,5 @@
   "rewrites": [
   { "source": "/dashboard", "destination": "/dashboard" },
   { "source": "/(.*)", "destination": "/" }
-],
-  "headers":[
-    {
-      "source": "/dashboard",
-      "headers": [  
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    }]
+]
 }
